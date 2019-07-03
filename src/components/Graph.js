@@ -1,5 +1,10 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { StyleSheet, View, Text, Dimensions } from "react-native";
+
+const windowsWidth = Dimensions.get("window").width;
+const graphWidth = windowsWidth * 0.3;
+const borderSize = graphWidth * 0.1;
+const fontSize = borderSize * 4;
 
 class Graph extends React.Component {
   constructor(props) {
@@ -36,7 +41,7 @@ class Graph extends React.Component {
   }
 }
 
-const styles = {
+const styles = StyleSheet.create({
   containerStyle: {
     backgroundColor: "#fff",
     alignItems: "center",
@@ -44,7 +49,7 @@ const styles = {
     flexDirection: "row"
   },
   textStyle: {
-    fontSize: 30,
+    fontSize: fontSize,
     textAlign: "center",
     fontWeight: "bold"
   },
@@ -53,11 +58,11 @@ const styles = {
   blueText: { color: "#1268CE" },
   greenText: { color: "#26890A" },
   square: {
-    width: 100,
-    height: 100,
+    width: graphWidth,
+    height: graphWidth,
     backgroundColor: "transparent",
     borderStyle: "solid",
-    border: 10,
+    borderWidth: borderSize,
     alignItems: "center",
     justifyContent: "center"
   },
@@ -85,6 +90,6 @@ const styles = {
     borderTopColor: "#26890A",
     borderBottomColor: "transparent"
   }
-};
+});
 
 export default Graph;
